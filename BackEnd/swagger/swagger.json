@@ -1,0 +1,899 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger demo for the item REST api demonstrated in class.",
+        "version": "1.0.0",
+        "title": "Swagger Item API",
+        "contact": {
+            "email": "teste@gmail.com"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/api-docs",
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Authentication"
+        },
+        {
+            "name": "User",
+            "description": "Operations about User"
+        },
+        {
+            "name": "Admin",
+            "description": "Operations about Admin"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login into a account",
+                "parameters": [
+                    {
+                        "name": "login",
+                        "in": "body",
+                        "description": "Example of login",
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                ],
+                "description": "login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login",
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register, create a User",
+                "parameters": [
+                    {
+                        "name": "register",
+                        "in": "body",
+                        "description": "Example of register",
+                        "schema": {
+                            "$ref": "#/definitions/register"
+                        }
+                    }
+                ],
+                "description": "register",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Register -> creates a User",
+                        "schema": {
+                            "$ref": "#/definitions/register"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/admin/createAdmin": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Creates a Admin",
+                "parameters": [
+                    {
+                        "name": "Create Admin",
+                        "in": "body",
+                        "description": "Creates a Admin",
+                        "schema": {
+                            "$ref": "#/definitions/admin"
+                        }
+                    }
+                ],
+                "description": "Creates a Admin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Create",
+                        "schema": {
+                            "$ref": "#/definitions/admin"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/admin/users/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of user that we want to find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update an existing User",
+                "description": "Updates a valid User on the database.",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User object that needs to be edited to the database.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Updated",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Deletes an User",
+                "description": "Deletes an User from the database",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Find User by ID",
+                "description": "Returns a single User by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User selected",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/admin/admins/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of Admin that we want to find",
+                    "type": "string"
+                }
+            ],
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update an existing Admin",
+                "description": "Updates a valid Admin on the database.",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Admin object that needs to be edited to the database.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Admin"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Admin Updated",
+                        "schema": {
+                            "$ref": "#/definitions/Admin"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Deletes an Admin",
+                "description": "Deletes an Admin from the database",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Admin deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Admin"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Find Admin by ID",
+                "description": "Returns a single Admin by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Admin selected",
+                        "schema": {
+                            "$ref": "#/definitions/Admin"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/admin/locals/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of Local that we want to find",
+                    "type": "string"
+                }
+            ],
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Deletes an Local",
+                "description": "Deletes an Local from the database",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Local"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Shows all Locals",
+                "description": "Returns all Locals",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local selected",
+                        "schema": {
+                            "$ref": "#/definitions/Local"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/admin/showLocal/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of Local that we want to find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Find Local by ID",
+                "description": "Returns a single Local by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local selected",
+                        "schema": {
+                            "$ref": "#/definitions/Local"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/admin/profile": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get Admin from token id",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "$ref": "#/definitions/Admin"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Profile to update",
+                        "schema": {
+                            "$ref": "#/definitions/Admin"
+                        }
+                    }
+                ],
+                "summary": "Update Admin profile",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "$ref": "#/definitions/Admin"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/user/profile": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get User from token id",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Profile to update",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "summary": "Update User profile",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/user/local/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of Local that we want to find",
+                    "type": "string"
+                }
+            ],
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Deletes an Local",
+                "description": "Deletes an Local from the database",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Local"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Shows all Locals",
+                "description": "Returns all Locals",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local selected",
+                        "schema": {
+                            "$ref": "#/definitions/Local"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Shows all Locals",
+                "description": "Returns all Locals",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local selected",
+                        "schema": {
+                            "$ref": "#/definitions/Local"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/user/showLocal/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of Local that we want to find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Find Local by ID",
+                "description": "Returns a single Local by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local selected",
+                        "schema": {
+                            "$ref": "#/definitions/Local"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/user/myLocals": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Find Local by User ID",
+                "description": "Returns a single Local by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local selected",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        },
+        "/user/locals": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Shows all Locals",
+                "description": "Returns all Locals",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Local selected",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "item_jwt_auth": []
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "item_jwt_auth": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "x-access-token"
+        }
+    },
+    "definitions": {
+        "Admin": {
+            "example": {
+                "email": "admin@gmail.com",
+                "password": "ola123"
+            },
+            "type": "object",
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "example@gmail.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "password"
+                }
+            }
+        },
+        "Local": {
+            "example": {
+                "name": "Cafe",
+                "local": "Famalicao",
+                "category": "Cafes",
+                "desciption": "Cafe",
+                "likes": 0,
+                "dislikes": 0,
+                "user_id": "60d9d8ee74749e46d8ca8da1"
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "local",
+                "category",
+                "desciption",
+                "likes",
+                "dislikes",
+                "user_id"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Cafe"
+                },
+                "local": {
+                    "type": "string",
+                    "example": "Famalicao"
+                },
+                "category": {
+                    "type": "string",
+                    "example": "Cafe"
+                },
+                "desciption": {
+                    "type": "string",
+                    "example": "Cafe"
+                },
+                "likes": {
+                    "type": "number",
+                    "example": 0
+                },
+                "dislikes": {
+                    "type": "number",
+                    "example": 0
+                },
+                "user_id": {
+                    "type": "string",
+                    "description": "60d9d8ee74749e46d8ca8da1"
+                }
+            }
+        },
+        "User": {
+            "example": {
+                "fname": "Christopher",
+                "lname": "Meder",
+                "gender": "M",
+                "password": "ola123",
+                "email": "User@gmail.com",
+                "permission": 2
+            },
+            "type": "object",
+            "required": [
+                "fname",
+                "lname",
+                "gender",
+                "password",
+                "email",
+                "permission"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "fname": {
+                    "type": "string",
+                    "example": "Christopher"
+                },
+                "lname": {
+                    "type": "string",
+                    "example": "Meder"
+                },
+                "gender": {
+                    "type": "string",
+                    "enum": [
+                        "M",
+                        "F"
+                    ]
+                },
+                "password": {
+                    "type": "string",
+                    "example": "password"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "user@gmail.com"
+                },
+                "permission": {
+                    "type": "number",
+                    "example": 2
+                }
+            }
+        },
+        "login": {
+            "example": {
+                "email": "example@gmail.com",
+                "password": "password"
+            },
+            "type": "object",
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "password"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "example@gmail.com"
+                }
+            }
+        },
+        "register": {
+            "example": {
+                "fname": "Christopher",
+                "lname": "Meder",
+                "gender": "M",
+                "password": "password",
+                "email": "example@gmail.com",
+                "permission": 2
+            },
+            "type": "object",
+            "required": [
+                "fname",
+                "lname",
+                "gender",
+                "password",
+                "email",
+                "permission"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "fname": {
+                    "type": "string",
+                    "example": "Rita"
+                },
+                "lname": {
+                    "type": "string",
+                    "example": "Malhoa"
+                },
+                "gender": {
+                    "type": "string",
+                    "example": "M/F"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "password"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "example@gmail.com"
+                },
+                "permission": {
+                    "type": "number",
+                    "example": 2
+                }
+            }
+        }
+    }
+}
