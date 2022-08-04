@@ -1,0 +1,13 @@
+<app-admin-menu></app-admin-menu>
+<div id="container">
+    <h1 align="center">Create Admin</h1>
+    <div class="container">
+        <label for="email">Email</label>
+        <input  id="email" name="email" [(ngModel)]="email" placeholder="Name..." type="text"><br>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" [(ngModel)]="password" placeholder="Password..." type="password" >
+        <br>
+        <p></p>
+        <a mat-raised-button color="primary" class="login-button" (click)="createAdmin()"> Criar </a>
+    </div>

@@ -1,0 +1,15 @@
+<div class="card" *ngIf="data">
+    <h1 mat-dialog-title class="text-center">Admin Details</h1>
+    <mat-dialog-content>
+        <label for="form-email">Email</label>
+        <input placeholder="Email..." [(ngModel)]="data.email" type="text">
+        <td></td>
+        <label for="form-password">Password</label>
+        <input placeholder="Password..." [(ngModel)]="data.local" type="password">
+        <td></td>
+        <td></td>
+        <mat-dialog-actions>
+            <button mat-raised-button [mat-dialog-close]="false"> Fechar</button>
+            <button mat-raised-button [mat-dialog-close]="data" color="warn"> Guardar</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>

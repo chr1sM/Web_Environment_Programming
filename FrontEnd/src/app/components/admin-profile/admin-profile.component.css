@@ -1,0 +1,20 @@
+.container{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 75%;
+    align-items: center;
+    padding-top: 6%;
+    padding-left: 11%;
+}
+.img1{
+    background-image: url()
+}
+img{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}

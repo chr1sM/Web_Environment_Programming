@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="login.component.css" media="screen" />
+</head>
+<body>
+    <div class="container">
+        <div class="login card" > 
+            <mat-card class="login-card">
+                  <mat-card-content class="content">
+                    <h1 class="text-center">Login</h1>
+                    <div class="login-form">
+                        <mat-form-field>
+                            <input class="input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="Email" [(ngModel)]="email" type="text">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input (keyup)="handleKeyUp($event)" class="input" placeholder="Password" [(ngModel)]="password" type="password" >
+                        </mat-form-field>
+                        <mat-card-actions>
+                            <a mat-raised-button color="warn" class="login-button" (click)="login()"> Login </a>
+                        <a mat-raised-button color="primary" class="login-button" (click)="register()"> Register </a>
+                          </mat-card-actions>    
+                    </div>
+                  </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+   
+    
+    
+</body>

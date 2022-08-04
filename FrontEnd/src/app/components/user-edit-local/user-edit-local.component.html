@@ -1,0 +1,25 @@
+<app-local-menu></app-local-menu>
+<div class="card" *ngIf="local">
+    
+    
+    <h1 class="text-center">Edit Local</h1>
+    <div class="item-form">
+        <label for="form-name">Name</label>
+        <input  name="name" placeholder="Nome..." [(ngModel)]="local.name" type="text">
+        <td></td>
+        <label for="form-local">Local</label>
+        <input  name="local" placeholder="Local..." [(ngModel)]="local.local" type="text">
+        <td></td>
+        <label for="form-category">Categoria</label>
+        <input   name="category" placeholder="Categoria..." [(ngModel)]="local.category" type="text">
+        <td></td>
+        <label for="form-desciption">Descricao</label>
+        <input  name="desciption" placeholder="Descricao..." [(ngModel)]="local.desciption" type="text">
+        <td></td>
+        <mat-slide-toggle>Slide me!</mat-slide-toggle>
+        <td></td>
+
+        <button class="item-button" (click)="updateEvent()"> Update </button>
+    </div>
+
+</div>

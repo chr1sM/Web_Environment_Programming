@@ -1,0 +1,20 @@
+<app-admin-menu></app-admin-menu>
+<div class="body" id="UsersTable" *ngIf="users">
+    <h1 class="text-center">Users List</h1>
+    <div class="container">
+        <div class="row" *ngFor="let user of users; let i = index">
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <i class="material-icons circle">star</i>
+                    <span class="title"> {{ user.fname }}</span>
+                    <br/>
+                    <i class="material-icons circle">star</i>
+                    <span class="title"> {{ user.email }}</span>
+                    <br/>
+                    <a mat-mini-fab color="secondary" (click)="openDialog(user._id)">View</a>
+                    <a mat-mini-fab color="warn" (click)="deleteUser(user._id)">Delete</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

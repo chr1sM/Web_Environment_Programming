@@ -1,0 +1,28 @@
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.login-card {
+    margin: auto;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.log {
+    padding: 10px;
+}
+
+button {
+    width: 50%;
+    background: linear-gradient(to right, rgb(101, 156, 170), rgb(41, 73, 131));
+    border-radius: 30px;
+    color: white;
+}
+
+.container{
+    padding-bottom: 10%;
+}
+

@@ -1,0 +1,23 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="admin-profile.component.css" media="screen" />
+</head>
+
+<app-admin-menu></app-admin-menu>
+
+<div class="card" *ngIf="admin">
+    <div class="container">
+        <div class="containerImg"> 
+            <img src="">
+            <br>
+        </div>
+        <div class="item-form">
+            <label for="form-email">Email</label><br>
+            <input disabled id="form-email" placeholder="Email" [(ngModel)]="admin.email" type="text">
+            <td></td>
+            <label for="form-password">Password</label><br>
+            <input  id="form-password" placeholder="Password..." [(ngModel)]="admin.password" type="password" onfocus="this.value=''">
+            <td></td><br>
+            <a mat-raised-button class="item-button" (click)="updateProfile(admin)"> Edit Admin</a>
+        </div>
+    </div>
+</div>

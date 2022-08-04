@@ -1,0 +1,18 @@
+<app-local-menu></app-local-menu>
+<div id="container">
+    <h1 align="center">Create Local</h1>
+    <div class="container">
+        <label for="name">Name</label>
+        <input [(ngModel)]="name" placeholder="Name..." type="text" id="name" name="name"><br>
+
+        <label for="local">Local</label>
+        <input [(ngModel)]="local" placeholder="Local Name..." type="text" id="name" name="name"><br>
+
+        <label for="category">Categoria</label>
+        <input [(ngModel)]="category" placeholder="Categoria..." type="text" id="name" name="name"><br>
+
+        <label for="desciption">Descricao</label>
+        <input [(ngModel)]="desciption" placeholder="Descricao..." type="text" id="name" name="name"><br>
+        <p></p>
+        <a mat-raised-button color="primary" class="login-button" (click)="createLocal()"> Criar </a>
+    </div>

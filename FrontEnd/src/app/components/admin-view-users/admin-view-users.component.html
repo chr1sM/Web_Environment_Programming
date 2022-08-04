@@ -1,0 +1,22 @@
+<div class="card" *ngIf="data">
+    <h1 mat-dialog-title class="text-center">User Details</h1>
+    <mat-dialog-content>
+        <label for="form-name">First Name</label><td></td>
+        <input  id="form-name" placeholder="First Name..." [(ngModel)]="data.fname" type="text">
+        <td></td>
+        <label for="form-name">Last Name</label><td></td>
+        <input  id="form-name" placeholder="Last Name..." [(ngModel)]="data.lname" type="text">
+        <td></td>
+        <label for="form-name">Email</label><td></td>
+        <input email id="form-name" placeholder="Email..." [(ngModel)]="data.email" type="text">
+        <td></td>
+        <label for="form-name">Gender</label><td></td>
+        <input  id="form-name" placeholder="Gender..." [(ngModel)]="data.gender" type="text">
+        <td></td>
+        <mat-dialog-actions>
+            <button mat-raised-button [mat-dialog-close]="false" > Fechar</button>
+            <button mat-raised-button color="warn" [mat-dialog-close]="data" > Guardar</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+
+</div>

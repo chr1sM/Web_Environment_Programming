@@ -1,0 +1,85 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  width: 50%;
+  margin-left: 25%;
+  padding: 20px;
+  border-radius: 10px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.names,
+.informations {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.first {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.last {
+  margin-left: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 95%;
+}
+.button{
+  align-items: flex-end ;
+}
+
+/*Button e inputs*/
+input[type="text"] {
+  border-radius: 5px;
+  border: 1px solid #197901;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+}
+input[type="password"] {
+  border-radius: 5px;
+  border: 1px solid #197901;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+}
+input[type="number"] {
+  border-radius: 5px;
+  border: 1px solid #197901;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+}
+input[type="date"] {
+  border-radius: 5px;
+  border: 1px solid #197901;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+}
+select {
+  border-radius: 5px;
+  height: 40px;
+  border: 1px solid #197901;
+}
+
+button {
+  border: 1px solid #069c26;
+  border-radius: 5px;
+  color: white;
+  background-color: #069c26;
+  height: 50px;
+}

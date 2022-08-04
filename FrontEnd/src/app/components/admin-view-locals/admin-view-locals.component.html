@@ -1,0 +1,26 @@
+<div class="card" *ngIf="data">
+    <h1 mat-dialog-title class="text-center">Local Details</h1>
+    <mat-dialog-content>
+        <label for="form-name">Name</label>
+        <input placeholder="Nome do Local..." [(ngModel)]="data.name" type="text">
+        <td></td>
+        <label for="form-local">Local</label>
+        <input placeholder="Endreco..." [(ngModel)]="data.local" type="text">
+        <td></td>
+        <label for="form-category">Categoria</label>
+        <input placeholder="Categoria..." [(ngModel)]="data.category" type="text">
+        <td></td>
+        <label for="form-desciption">Descricao</label>
+        <input placeholder="Descricao..." [(ngModel)]="data.desciption" type="text">
+        <td></td>
+        <label for="form-likes">Likes</label>
+        <input  [(ngModel)]="data.likes" type="number">
+        <td></td>
+        <label for="form-dislikes">Dislikes</label>
+        <input [(ngModel)]="data.dislikes" type="number">
+        <td></td>
+        <mat-dialog-actions>
+            <button mat-raised-button [mat-dialog-close]="false"> Fechar</button>
+            <button mat-raised-button [mat-dialog-close]="data" color="warn"> Guardar</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>

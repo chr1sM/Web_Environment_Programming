@@ -1,0 +1,17 @@
+<app-local-menu></app-local-menu>
+<div class="body" id="LocalsTable" *ngIf="locals">
+
+    <h1 class="text-center">Local List</h1>
+    <div class="container">
+        <div class="row" *ngFor="let local of locals; let i = index">
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <i class="material-icons circle">star</i>
+                    <span class="title"> {{ local.name }}</span>
+                    <br/>
+                    <a mat-mini-fab color="secondary" (click)="openDialog(local._id)">View</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

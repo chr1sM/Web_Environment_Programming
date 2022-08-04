@@ -1,0 +1,11 @@
+.container{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 75%;
+    padding-left: 11%;
+}
+
+.body{
+    padding: 3%;
+}
